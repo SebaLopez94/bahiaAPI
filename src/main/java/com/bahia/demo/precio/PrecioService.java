@@ -18,9 +18,11 @@ public class PrecioService implements PrecioUseCase {
     @Override
     public PrecioDTO findByStartDateAndProductIdAndBrandCode(LocalDateTime startDate, Long productId, String brandCode) {
         List<Precio> precios = precioRepository.findByStartDateAndProductIdAndBrandCode(startDate, productId, brandCode);
-        //TODO Add more validations and specific exceptions
+        //Taking the first "Precio" of the list due to is ordered desc by Prioritity
         return (!precios.isEmpty()) ? buildPrecioDTOByPrecio(precios.get(0)) : null;
     }
+    //TODO Add more validations and specific exceptions
+
 
     /**
      * Using the Builder Pattern provided by Lombok with the annotation @Builder,

@@ -28,13 +28,12 @@ class PrecioControllerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"2020-06-14-00:00", "2020-06-15-00:00"})
-        // six numbers
-    void givenStartDateWhenRetrievePreciosThenNonEmpty(String date) {
+    void givenStartDateWhenfindPreciosThenNonEmpty(String date) {
         //given
         LocalDateTime startDate = LocalDateTime.parse(date, DateTimeFormatter.ofPattern(Constants.PRICE_START_DATE_FORMAT));
 
         //when
-        PrecioDTO precioDTO = precioService.retrievePrecio(startDate, 35455L, "ZARA");
+        PrecioDTO precioDTO = precioService.findByStartDateAndProductIdAndBrandCode(startDate, 35455L, "ZARA");
 
         //then
         assertEquals(true, precioDTO != null);
@@ -43,10 +42,9 @@ class PrecioControllerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"2020-06-14-16:00", "2020-06-14-21:00", "2020-06-16-21:00"})
-        // six numbers
-    void givenStartDateWhenRetrievePreciosEmpty(String date) {
+    void givenStartDateWhenfindPreciosEmpty(String date) {
         LocalDateTime startDate = LocalDateTime.parse(date, DateTimeFormatter.ofPattern(Constants.PRICE_START_DATE_FORMAT));
-        PrecioDTO precioDTO = precioService.retrievePrecio(startDate, 35455L, "ZARA");
+        PrecioDTO precioDTO = precioService.findByStartDateAndProductIdAndBrandCode(startDate, 35455L, "ZARA");
         assertEquals(false, precioDTO != null);
     }
 

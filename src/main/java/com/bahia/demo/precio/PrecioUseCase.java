@@ -8,5 +8,5 @@ import java.time.LocalDateTime;
 
 public interface PrecioUseCase {
 
-    public PrecioDTO retrievePrecio(LocalDateTime startDate, Long productId, String brandCode);
+    public PrecioDTO findByStartDateAndProductIdAndBrandCode(LocalDateTime startDate, Long productId, String brandCode);
 }

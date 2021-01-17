@@ -18,11 +18,11 @@ public class PrecioController {
 
 
     @GetMapping("/")
-    public PrecioDTO retrievePrecio(@RequestParam(value = "startDate") @DateTimeFormat(pattern = Constants.PRICE_START_DATE_FORMAT) LocalDateTime startDate,
+    public PrecioDTO findByStartDateAndProductIdAndBrandCode(@RequestParam(value = "startDate") @DateTimeFormat(pattern = Constants.PRICE_START_DATE_FORMAT) LocalDateTime startDate,
                                      @RequestParam(value = "productId") Long productId,
                                      @RequestParam(value = "brand") String brandCode) {
 
-        return precioService.retrievePrecio(startDate, productId, brandCode);
+        return precioService.findByStartDateAndProductIdAndBrandCode(startDate, productId, brandCode);
     }
 
 

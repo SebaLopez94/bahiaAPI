@@ -4,6 +4,7 @@ import com.bahia.demo.precio.dto.PrecioDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,11 +16,15 @@ public class PrecioService implements PrecioUseCase {
     private PrecioRepository precioRepository;
 
     @Override
-    public PrecioDTO retrievePrecio(LocalDateTime startDate, Long productId, String brandCode) {
+    public PrecioDTO findByStartDateAndProductIdAndBrandCode(LocalDateTime startDate, Long productId, String brandCode) {
         List<Precio> precios = precioRepository.findByStartDateAndProductIdAndBrandCode(startDate, productId, brandCode);
         return (!precios.isEmpty()) ? buildPrecioDTOByPrecio(precios.get(0)) : null;
     }
 
+    /**
+     * Using the Builder Pattern provided by Lombok with the annotation @Builder,
+     * to map the domain object to DTO
+     */
     private PrecioDTO buildPrecioDTOByPrecio(Precio precio) {
         return PrecioDTO.builder()
                 .brandName(precio.getBrand().getName())

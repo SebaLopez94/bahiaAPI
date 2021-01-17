@@ -20,7 +20,7 @@ import java.time.format.DateTimeFormatter;
 @SpringBootTest
 @Sql("/test.sql")
 @AutoConfigureMockMvc
-class PrecioControllerTest {
+class PrecioServiceTest {
 
     @Autowired
     PrecioService precioService;
@@ -28,7 +28,7 @@ class PrecioControllerTest {
 
     @ParameterizedTest
     @ValueSource(strings = {"2020-06-14-00:00", "2020-06-15-00:00"})
-    void givenStartDateWhenfindPreciosThenNonEmpty(String date) {
+    void givenStartDateWhenFindPreciosThenNonEmpty(String date) {
         //given
         LocalDateTime startDate = LocalDateTime.parse(date, DateTimeFormatter.ofPattern(Constants.PRICE_START_DATE_FORMAT));
 
@@ -43,7 +43,7 @@ class PrecioControllerTest {
     @ParameterizedTest
     @ValueSource(strings = {"2020-06-14-16:00", "2020-06-14-21:00", "2020-06-16-21:00"})
         // six numbers
-    void givenStartDateWhenRetrievePreciosEmpty(String date) {
+    void givenStartDateWhenFindPreciosThenEmpty(String date) {
         LocalDateTime startDate = LocalDateTime.parse(date, DateTimeFormatter.ofPattern(Constants.PRICE_START_DATE_FORMAT));
         PrecioDTO precioDTO = precioService.findByStartDateAndProductIdAndBrandCode(startDate, 35455L, "ZARA");
         assertEquals(false, precioDTO != null);

@@ -28,5 +28,4 @@ public class Brand {
     private List<Precio> precio;
 
 
-
 }

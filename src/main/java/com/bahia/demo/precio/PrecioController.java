@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 
 
 @RestController
-@RequestMapping(value = "/api/precio")
+@RequestMapping(value = "/api/v1/precio")
 public class PrecioController {
 
     @Autowired
@@ -19,8 +19,8 @@ public class PrecioController {
 
     @GetMapping("/")
     public PrecioDTO findByStartDateAndProductIdAndBrandCode(@RequestParam(value = "startDate") @DateTimeFormat(pattern = Constants.PRICE_START_DATE_FORMAT) LocalDateTime startDate,
-                                     @RequestParam(value = "productId") Long productId,
-                                     @RequestParam(value = "brand") String brandCode) {
+                                                             @RequestParam(value = "productId") Long productId,
+                                                             @RequestParam(value = "brand") String brandCode) {
 
         return precioService.findByStartDateAndProductIdAndBrandCode(startDate, productId, brandCode);
     }

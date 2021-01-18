@@ -1,3 +1,8 @@
 language: java
+install: true
+
 jdk:
- - oraclejdk11
+  - oraclejdk11
+
+script:
+  - ./mvnw test

@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/SebaLG/bahiaAPI.svg?branch=main)](https://travis-ci.com/SebaLG/bahiaAPI)
+
 # BahiaAPI
 
 Minimal [Spring Boot](http://projects.spring.io/spring-boot/) rest app for Bahia.

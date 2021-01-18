@@ -19,7 +19,7 @@ Alternatively you can use the [Spring Boot Maven plugin](https://docs.spring.io/
 mvn spring-boot:run
 ```
 
-## Heroku URLs (CLoud)
+## Heroku URLs (Cloud)
 
 The app is deployed in [Heroku](https://dashboard.heroku.com/) with CD every time we push into main branch. These are the URLs:
 

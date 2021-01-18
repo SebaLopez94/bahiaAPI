@@ -40,7 +40,3 @@ Api by the URI: http://localhost:9090/bahia/api/v1/precio/
 Swagger documantation http://localhost:9090/bahia/swagger-ui.html
 
 URI Query Example: http://localhost:9090/bahia/api/v1/precio/?startDate=2020-06-14-00:00&productId=35455&brand=ZARA
-
-
-https://bahiaapi.herokuapp.com/bahia/api/v1/precio/?startDate=2020-06-14-00:00&productId=35455&brand=ZARA
-
